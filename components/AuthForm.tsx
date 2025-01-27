@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   DefaultValues,
   FieldValues,
+  Path,
   SubmitHandler,
   useForm,
   UseFormReturn,
@@ -48,6 +49,7 @@ const AuthForm = <T extends FieldValues>({
 
   const handleSubmit: SubmitHandler<T> = async (data) => {};
 
+  // @ts-ignore
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-2xl font-semibold text-white">
@@ -72,7 +74,7 @@ const AuthForm = <T extends FieldValues>({
                   </FormLabel>
                   <FormControl>
                     {field.name === "universityCard" ? (
-                      <ImageUpload />
+                      <ImageUpload onFileChange={field.onChange} />
                     ) : (
                       <Input
                         required
