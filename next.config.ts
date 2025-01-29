@@ -16,12 +16,16 @@ const nextConfig: NextConfig = {
         hostname: "ik.imagekit.io",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "uni-library-h3tm9ixex-toms-projects-4d25f87d.vercel.app",
+      },
     ],
   },
   typescript: {
     ignoreBuildErrors: true,
   },
-  eslist: {
+  eslint: {
     ignoreDuringBuilds: true,
   },
 };
