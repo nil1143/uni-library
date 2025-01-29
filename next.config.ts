@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "uni-library-h3tm9ixex-toms-projects-4d25f87d.vercel.app",
+        hostname: "uni-library-rho.vercel.app",
       },
     ],
   },
