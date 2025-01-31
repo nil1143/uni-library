@@ -21,6 +21,7 @@ import { Button } from "@/components/ui/button";
 // import ColorPicker from "@/components/admin/ColorPicker";
 // import { createBook } from "@/lib/admin/actions/book";
 import { toast } from "@/hooks/use-toast";
+import FileUpload from "@/components/FileUpload";
 
 interface Props extends Partial<Book> {
   type?: "create" | "update";
@@ -182,17 +183,19 @@ const BookForm = ({ type, ...book }: Props) => {
               <FormLabel className="text-base font-normal text-dark-500">
                 Book Image
               </FormLabel>
-              <FormControl>
-                {/*<FileUpload*/}
-                {/*  type="image"*/}
-                {/*  accept="image/*"*/}
-                {/*  placeholder="Upload a book cover"*/}
-                {/*  folder="books/covers"*/}
-                {/*  variant="light"*/}
-                {/*  onFileChange={field.onChange}*/}
-                {/*  value={field.value}*/}
-                {/*/>*/}
-              </FormControl>
+              <div className="flex flex-col items-center gap-2">
+                <FormControl>
+                  <FileUpload
+                    type="image"
+                    accept="image/*"
+                    placeholder="Upload a book cover"
+                    folder="books/covers"
+                    variant="light"
+                    onFileChange={field.onChange}
+                    value={field.value}
+                  />
+                </FormControl>
+              </div>
               <FormMessage />
             </FormItem>
           )}
@@ -246,15 +249,15 @@ const BookForm = ({ type, ...book }: Props) => {
                 Book Trailer
               </FormLabel>
               <FormControl>
-                {/*<FileUpload*/}
-                {/*  type="video"*/}
-                {/*  accept="video/*"*/}
-                {/*  placeholder="Upload a book trailer"*/}
-                {/*  folder="books/videos"*/}
-                {/*  variant="light"*/}
-                {/*  onFileChange={field.onChange}*/}
-                {/*  value={field.value}*/}
-                {/*/>*/}
+                <FileUpload
+                  type="video"
+                  accept="video/*"
+                  placeholder="Upload a book trailer"
+                  folder="books/videos"
+                  variant="light"
+                  onFileChange={field.onChange}
+                  value={field.value}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
