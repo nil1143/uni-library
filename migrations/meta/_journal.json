@@ -8,6 +8,13 @@
       "when": 1737948062582,
       "tag": "0000_parched_madelyne_pryor",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1738373849673,
+      "tag": "0001_peaceful_norman_osborn",
+      "breakpoints": true
     }
   ]
 }
