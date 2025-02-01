@@ -1,16 +1,19 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import BookCover from "@/components/BookCover";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { IKImage } from "imagekitio-next";
+import config from "@/lib/config";
 
 const BookCard = ({
   id,
   title,
   genre,
-  color,
-  cover,
+  coverColor,
+  coverUrl,
   isLoanedBook = false,
 }: Book) => (
   <li className={cn(isLoanedBook && "xs:w-52 w-full")}>
@@ -18,7 +21,7 @@ const BookCard = ({
       href={`/books/${id}`}
       className={cn(isLoanedBook && "w-full flex flex-col items-center")}
     >
-      <BookCover coverColor={color} coverImage={cover} />
+      <BookCover coverColor={coverColor} coverImage={coverUrl} />
 
       <div className={cn("mt-4", !isLoanedBook && "xs:max-w-40 max-w-28")}>
         <p className="book-title">{title}</p>
@@ -28,12 +31,15 @@ const BookCard = ({
       {isLoanedBook && (
         <div className="mt-3 w-full">
           <div className="book-loaned">
-            <Image
-              src="/icons/calendar.svg"
+            <IKImage
+              path="/icons/calendar.svg"
+              urlEndpoint={config.env.imagekit.urlEndpoint}
               alt="calendar"
               width={18}
               height={18}
               className="object-contain"
+              loading="lazy"
+              lqip={{ active: true }}
             />
             <p className="text-light-100">11 days to return</p>
           </div>
